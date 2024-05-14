@@ -1,0 +1,18 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {3, 7, 2, 9, 1, 6, 8, 4, 5};
+
+        int smallestIndex = Arrays.stream(numbers)
+                                  .reduce((i, j) -> numbers[i] < numbers[j] ? i : j)
+                                  .orElseThrow();
+
+        int largestIndex = Arrays.stream(numbers)
+                                 .reduce((i, j) -> numbers[i] > numbers[j] ? i : j)
+                                 .orElseThrow();
+
+        System.out.println("Position of the smallest number: " + smallestIndex);
+        System.out.println("Position of the largest number: " + largestIndex);
+    }
+}
